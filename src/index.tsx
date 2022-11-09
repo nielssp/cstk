@@ -17,6 +17,8 @@ export * from './injector';
 export * from './router';
 export * from './util';
 
+export * from './widgets/menu';
+
 declare global {
     namespace JSX {
         type Element = (context: Context) => Node|Node[];

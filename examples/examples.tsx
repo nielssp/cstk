@@ -1,4 +1,5 @@
 import { createElement, bind, mount, bindList, Property, Show, For, Style, zipWith, ref, ariaBool, Deref, Unwrap, Context } from "../src";
+import { Menu, Action, MenuBar } from "../src/widgets/index";
 import { TextControl, Field, IntControl } from "../src/form";
 import { _, _n } from "../src/i18n";
 
@@ -79,8 +80,8 @@ function Counter(_props: {}, context: Context): JSX.Element {
 function TemperatureConverter() {
     const celcius = new IntControl(5);
     const fahrenheit = new IntControl(celcius.bimap(
-        c => c * 9 / 5 + 32,
-        f => (f - 32) * 5 / 9,
+        c => Math.floor(c * 9 / 5 + 32),
+        f => Math.floor((f - 32) * 5 / 9),
     ));
     return <div class='stack-row spacing align-center'>
         <Field control={celcius}>
@@ -93,6 +94,42 @@ function TemperatureConverter() {
         </Field>
     </div>;
 }
+
+function TemperatureConverter2() {
+    const celcius = new TextControl('5');
+    const fahrenheit = new TextControl(celcius.bimap(
+        c => String(parseFloat(c) * 9 / 5 + 32),
+        f => String((parseFloat(f) - 32) * 5 / 9),
+    ));
+    return <div class='stack-row spacing align-center'>
+        <Field control={celcius}>
+            <input type='text'/>
+            <label>Celcius =</label>
+        </Field>
+        <Field control={fahrenheit}>
+            <input type='text'/>
+            <label>Fahrenheit</label>
+        </Field>
+    </div>;
+}
+
+const menu = new Menu();
+const fileMenu = menu.addSubmenu('&File')
+    .add(new Action('&Open'))
+    .add(new Action('&Save', {
+        onClick: () => alert('save'),
+    }))
+    .add(new Menu('Recent Files')
+        .add(new Action('foo.txt'))
+        .add(new Action('bar.txt'))
+        .add(new Action('baz.txt')))
+    .addSeparator()
+    .add(new Action('E&xit'));
+const editMenu = menu.addSubmenu('&Edit')
+    .add(new Action('Cu&t'))
+    .add(new Action('&Copy'))
+    .add(new Action('&Paste'));
+menu.add(new Action('&Help'));
 
 const component = <div class='stack-column padding spacing'>
     <div class='stack-row spacing align-center'>
@@ -161,6 +198,8 @@ const component = <div class='stack-column padding spacing'>
     </form>
     <h2>Temperature converter</h2>
     <TemperatureConverter/>
+    <TemperatureConverter2/>
+    <MenuBar menu={menu}/>
 </div>;
 
 mount(document.body, component);
