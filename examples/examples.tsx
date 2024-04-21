@@ -2,10 +2,6 @@
 import { createElement, mount, _, _n } from "../src";
 import { Menu, Action, MenuBar } from "../src";
 
-import './classic-stylesheets/layout.css';
-import './classic-stylesheets/themes/win9x/theme.css';
-import './classic-stylesheets/themes/win9x/skins/95.css';
-
 const menu = new Menu();
 const fileMenu = menu.addSubmenu('&File')
     .add(new Action('&Open'))
