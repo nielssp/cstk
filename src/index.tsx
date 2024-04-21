@@ -12,3 +12,4 @@ export {
     cellArray as bindList,
 } from 'cytoplasmic';
 
+export * from './menu';
