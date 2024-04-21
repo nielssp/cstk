@@ -1,6 +1,4 @@
-import { createElement, bind, mount, bindList, Property, Show, For, Style, zipWith, ref, ariaBool, Deref, Unwrap, Context, createRouter, Link } from "../src";
-import { TextControl, Field, IntControl } from "../src/form";
-import { _, _n } from "../src/i18n";
+import { createElement, bind, mount, bindList, Property, Show, For, Style, zipWith, ref, ariaBool, Deref, Unwrap, Context, createRouter, Link, _, _n, TextControl, Field, IntControl } from "../src";
 
 import './classic-stylesheets/layout.css';
 import './classic-stylesheets/themes/win9x/theme.css';
@@ -201,7 +199,7 @@ const component = <div class='stack-column padding spacing'>
         <button disabled={selection.undefined} onClick={moveTaskDown}>Down</button>
     </div>
     <div class='list' role='listbox'>
-        <For each={tasks}>
+        <For each={tasks.indexed}>
             {(task, index) => (
                 <div role='option' tabIndex={0} aria-selected={ariaBool(index.eq(selection))}
                     onClick={() => selection.value = index.value}>

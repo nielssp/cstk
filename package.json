@@ -1,6 +1,6 @@
 {
   "name": "cstk",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "description": "The Classic Stylesheets Toolkit",
   "author": "Niels Poulsen",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "tsx-dom-types": "^1.0.0"
+    "tsx-dom-types": "^1.0.0",
+    "cytoplasmic": "^0.6.0"
   },
   "devDependencies": {
     "css-loader": "^5.2.4",
