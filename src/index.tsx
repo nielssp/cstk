@@ -3,13 +3,5 @@
 // Licensed under the MIT license. See the LICENSE file or
 // http://opensource.org/licenses/MIT for more information.
 
-export * from 'cytoplasmic';
-
-export {
-    cell as bind,
-    Cell as Property,
-    MutCell as ValueProperty,
-    cellArray as bindList,
-} from 'cytoplasmic';
-
-export * from './menu';
+export * from './data-grid.js';
+export * from './menu.js';

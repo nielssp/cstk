@@ -1,0 +1,20 @@
+{
+  "name": "cstk-examples",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cstk": "^0.7",
+    "classic-stylesheets": "^2.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^6.3.5",
+    "vite-plugin-checker": "^0.6.4"
+  }
+}

@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es5",
-    "lib": ["es2015", "dom"],
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "isolatedModules": true,
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": false,
+    "declarationMap": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "jsxFactory": "createElement",
     "jsxFragmentFactory": "Fragment"
   },
-  "include": [
-    "src/**/*"
-  ]
+  "files": ["./src/index.tsx"]
 }
